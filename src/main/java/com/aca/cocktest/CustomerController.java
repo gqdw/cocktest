@@ -15,9 +15,10 @@ public class CustomerController {
     private static final Logger log = LoggerFactory.getLogger(CustomerController.class);
 
     @GetMapping("/init")
-    public void initializeDb(){
+    public String initializeDb(){
         String genstring =  RandomStringUtils.randomAlphabetic(10);
         customerRepository.save(new Customer(genstring, ""));
+        return genstring + " added.";
     }
 
     @GetMapping("/customer")
