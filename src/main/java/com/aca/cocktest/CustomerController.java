@@ -16,9 +16,12 @@ public class CustomerController {
 
     @GetMapping("/init")
     public String initializeDb(){
-        String genstring =  RandomStringUtils.randomAlphabetic(10);
-        customerRepository.save(new Customer(genstring, ""));
-        return genstring + " added.";
+        for (int i = 0; i < 100; i++) {
+            String genstring =  RandomStringUtils.randomAlphabetic(10);
+            customerRepository.save(new Customer(genstring, ""));
+
+        }
+        return  "100 lines added.";
     }
 
     @GetMapping("/customer")
